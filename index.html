@@ -2,19 +2,21 @@
 <html lang="pl">
 <head>
     <title>LABORATORIUM MUZYKI</title>
-    <!-- Usuń meta viewport, jeśli był obecny, lub ustaw na stałą szerokość -->
-    <meta name="viewport" content="width=1024"> 
+    <!-- Ustawienie stałej szerokości strony -->
+    <meta name="viewport" content="width=1024, initial-scale=1.0"> <!-- Ustawienie skali na 1.0 -->
     <style>
-        body { 
-            background-color: #8776f1;
-            font-family: Courier New, sans-serif; 
-            min-width: 1024px; /* Stała szerokość */
-            overflow-x: auto;  /* Umożliwia przewijanie poziome */
+        html, body {
+            width: 1024px;   /* Stała szerokość */
+            overflow-x: auto; /* Umożliwia przewijanie poziome, jeśli potrzebne */
             margin: 0;
             padding: 0;
         }
+        body { 
+            background-color: #8776f1;
+            font-family: Courier New, sans-serif; 
+        }
         .box {
-            width: 400px;  /* Stała szerokość */
+            width: 400px;
             margin: 100px auto;
             border: 1px solid black;
             padding: 20px;
@@ -27,7 +29,6 @@
         p {font-size: 16px;}
     </style>
 </head>
-
 
 <body>
 <div class="box">
