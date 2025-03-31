@@ -1,178 +1,124 @@
+
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LABORATORIUM MUZYKI</title>
-    <!-- Ustawienie stałej szerokości strony -->
-    <meta name="viewport" content="width=1024, initial-scale=1.0"> <!-- Ustawienie skali na 1.0 -->
-    <style>
-        html, body {
-            width: 1024px;   /* Stała szerokość */
-            overflow-x: auto; /* Umożliwia przewijanie poziome, jeśli potrzebne */
-            margin: 0;
-            padding: 0;
-        }
-        body { 
-            background-color: #8776f1;
-            font-family: Courier New, sans-serif; 
-        }
-        .box {
-            width: 400px;
-            margin: 100px auto;
-            border: 1px solid black;
-            padding: 20px;
-            text-align: center;
-            background-color: #ffdaf7;
-        }
-        h1 {font-size: 24px;}
-        h2 {font-size: 20px;}
-        h3 { font-size: 18px;}
-        p {font-size: 16px;}
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
+<body class="body1">
+ <div class="box1">
+    <a href="cmenu.html"> <img src="arrow.png" style="width: 20px; height: 20px; margin-right:100%;" class="powiekszany"> </a>  
+    <h1 style="text-align: center;">Słuchowe rozpoznawanie interwałów</h1>
+    <p style="text-align: center;">do oktawy, w górę</p>
 
-<body>
-<div class="box">
-<h3>‿︵‿⋇⋆✦⋆⋇‿︵‿</h3>
-<h1>Laboratorium Muzyki</h1>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
-
- <img src="image11.png" alt="Opis obrazka" style="width: 150px; height: 150px;">
-
-
-</a>
-
-  
-        <h2>Projekt muzyczny tworzony w ramach olimpiady: zwolnieni z teorii!!!</h2>
+    <!-- Licznik wyników -->
+    <div class="box2">
+        <span style="font-size: 20px; margin-right: 20px;">Dobrze: <span id="correctCount">0</span></span>
+        <span style="font-size: 20px;">Źle: <span id="wrongCount">0</span></span>
         
-        <h3>︵‿︵⋇⋆✦⋆⋇︵‿︵</h3>
-        
-        <p>Zapraszamy na naszego tiktoka</p>
-        
-        <a href="https://www.tiktok.com/@laboratorium_muzyki/">
-            <img src="image3.png" alt="Opis obrazka" style="width: 80px; height: 80px;"> </a>
 
-     <p>oraz instagrama</p>
-     <a href="https://www.instagram.com/laboratorium_muzyki/">
-        <img src="image5.png" alt="Opis obrazka" style="width: 50px; height: 50px;"> </a>
-        <p>także postujemy na nim lekcje teorii muzyki ♪</p>  
-   
-   
-
-
-    <h3>‿︵‿⋇⋆✦⋆⋇‿︵‿</h3>
-    <h3>Poniżej zamieszczone są krótkie lekcje teorii muzyki:</h3>
     </div>
-    <style>
-        body { 
-            background-color: #ffdaf7; /* Tło całej strony */
-            font-family: Courier New, sans-serif; 
-        }
-        .box {
-            width: 50%;
-            margin: 100px auto;
-            border: 1px solid black;
-            padding: 20px;
-            text-align: center;
-            background-color: #ffdaf7; /* Tło prostokąta */
-            cursor: pointer; 
-        }
-        h1 {font-size: 24px;}
-        h2 {font-size: 20px;}
-        h3 { font-size: 18px;}
-        p {font-size: 16px;}
-    </style>
+   <!--random interval -->
+    <button class="button3" onclick="randomInterval()">Losuj Interwał</button>
     
-
+    <!-- button replay-->
+    <button class="button3" onclick="repeatInterval()">Zagraj jeszcze raz</button>
     
+    <!-- buttons wyboru interwału -->
+    <div id="intervalButtons" style="justify-content: last baseline;">
+        <button class="button2" onclick="checkAnswer('sekundamala')">Sekunda Mała</button>
+        <button class="button2" onclick="checkAnswer('sekundawielka')">Sekunda Wielka</button> 
+        <button class="button2" onclick="checkAnswer('tercjamala')">Tercja Mała</button>
+        <button class="button2" onclick="checkAnswer('tercjawielka')">Tercja Wielka</button> 
+        <button class="button2" onclick="checkAnswer('kwarta')">Kwarta</button>
+        <button class="button2" onclick="checkAnswer('tryton')">Tryton</button>
+        <button class="button2" onclick="checkAnswer('kwinta')">Kwinta</button>
+        <button class="button2" onclick="checkAnswer('sekstamala')">Seksta Mała</button>
+        <button class="button2" onclick="checkAnswer('sekstawielka')">Seksta Wielka</button>
+        <button class="button2" onclick="checkAnswer('septymamala')">Septyma Mała</button>
+        <button class="button2" onclick="checkAnswer('septymawielka')">Septyma Wielka</button>
+        <button class="button2" onclick="checkAnswer('oktawa')">Oktawa</button>
+     
+       
    
-    <a href="L1.html"> 
-        <style>
-            body { 
-                background-color: #9d88ce; /* Tło całej strony */
-                font-family: Courier New, sans-serif; 
-            }
-            .box {
-                width: 30%;
-                margin: 100px auto;
-                border: 1px solid black;
-                padding: 20px;
-                text-align: center;
-                background-color: #ffdaf7; 
-                cursor: pointer; 
-            }
-            h1 {font-size: 24px;}
-            h2 {font-size: 20px;}
-            h3 { font-size: 18px;}
-            p {font-size: 16px;}
-        </style>
-        <div class="box">
+    
+
+    </div>
+    <!--Obrazek na dobre -->
+<img id="image1" src="correct.png" style="width: 50px; height: 50px; display: none;" onclick="randomInterval" alt="✅">
+<img id="image2" src="incorrect.png" style="width: 50px; height: 50px; display: none;" onclick="randomInterval" alt="❌">
+ 
+    
+    
+    <!-- Odtwarzacz audio -->
+    <audio id="audioPlayer" controls style="display: none;">
+        <source id="audioSource" type="audio/mp3">
+        Twoja przeglądarka nie obsługuje odtwarzania dźwięku.
+    </audio>
+    
+    <script>
+        var correctAnswer = ''; 
+        var correctCount = 0;
+        var wrongCount = 0;
+    
+        // Funkcja losująca interwał
+        function randomInterval() {
+            var random = Math.floor(Math.random() * 12);
+            var audioSource = document.getElementById('audioSource');
+            
+            var intervals = {
+                0: ['sekundamala', 'sekundamala.mp3'],
+                1: ['sekundawielka', 'sekundawielka.mp3'],
+                2: ['tercjamala', 'tercjamala.mp3'],
+                3: ['tercjawielka', 'tercjawielka.mp3'],
+                4: ['kwarta', 'kwarta.mp3'],
+                5: ['tryton', 'tryton.mp3'],
+                6: ['kwinta', 'kwinta.mp3'],
+                7: ['sekstamala', 'sekstamala.mp3'],
+                8: ['sekstawielka', 'sekstawielka.mp3'],
+                9: ['septymamala', 'septymamala.mp3'],
+                10: ['septymawielka', 'septymawielka.mp3'],
+                11: ['oktawa', 'oktawa.mp3'],
+
+            };
+            
+            correctAnswer = intervals[random][0];
+            audioSource.src = intervals[random][1];
+
+            document.getElementById('image1').style.display = 'none';
+            document.getElementById('image2').style.display = 'none';
+            
+            playAudio();
+        }
         
-            <h1>♪</h1>
-            <h2>Lekcja 1</h2>
-            <p>Interwały proste, interwały złożone, enharmonia</p>
-        </div>
-    </a>
-
-
-   <a href="L2.html"> 
-        <style>
-            body { 
-                background-color: #9d88ce; /* Tło całej strony */
-                font-family: Courier New, sans-serif; 
-            }
-            .box {
-                width: 30%;
-                margin: 100px auto;
-                border: 1px solid black;
-                padding: 20px;
-                text-align: center;
-                background-color: #ffdaf7; 
-                cursor: pointer; 
-            }
-            h1 {font-size: 24px;}
-            h2 {font-size: 20px;}
-            h3 { font-size: 18px;}
-            p {font-size: 16px;}
-        </style>
-        <div class="box">
+        // Odt audio
+        function playAudio() {
+            var audio = document.getElementById('audioPlayer');
+            audio.load();
+            audio.play();
+        }
         
-            <h1>♪</h1>
-            <h2>Lekcja 2</h2>
-            <p>Klucze Muzyczne</p>
-        </div>
-    </a> 
-
-     <a href="L3.html"> 
-        <style>
-            body { 
-                background-color: #9d88ce; /* Tło całej strony */
-                font-family: Courier New, sans-serif; 
-            }
-            .box {
-                width: 30%;
-                margin: 100px auto;
-                border: 1px solid black;
-                padding: 20px;
-                text-align: center;
-                background-color: #ffdaf7; 
-                cursor: pointer; 
-            }
-            h1 {font-size: 24px;}
-            h2 {font-size: 20px;}
-            h3 { font-size: 18px;}
-            p {font-size: 16px;}
-        </style>
-        <div class="box">
+        // Funkcja do powtórzenia ostatniego interwału
+        function repeatInterval() {
+            playAudio();
+        }
         
-            <h1>♪</h1>
-            <h2>Lekcja 3</h2>
-            <p>Skale, Gamy, Tonacje</p>
-        </div>
-    </a> 
-
-</body>
-</html>
+        // Funkcja sprawdzająca odpowiedź i aktualizująca licznik
+        function checkAnswer(answer) {
+            if (answer === correctAnswer) {
+                document.getElementById('image1').style.display = 'block';
+                correctCount++;
+                document.getElementById('correctCount').textContent = correctCount;
+            } else {
+                document.getElementById('image2').style.display = 'block';
+                wrongCount++;
+                document.getElementById('wrongCount').textContent = wrongCount;
+            }
+        }
+    </script>
+ </div>
 </body>
 </html>
