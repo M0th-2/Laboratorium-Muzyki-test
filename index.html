@@ -19,7 +19,7 @@
    
     <button class="button3" onclick="randomInterval()">Losuj Interwał</button>
     <button class="button3" onclick="repeatInterval()">Zagraj jeszcze raz</button>
-    
+  
     <div id="intervalButtons" style="justify-content: last baseline;">
         <button class="button2" onclick="checkAnswer('sekundamala')">Sekunda Mała</button>
         <button class="button2" onclick="checkAnswer('sekundawielka')">Sekunda Wielka</button> 
@@ -34,7 +34,8 @@
         <button class="button2" onclick="checkAnswer('septymawielka')">Septyma Wielka</button>
         <button class="button2" onclick="checkAnswer('oktawa')">Oktawa</button>
     </div>
-    
+
+        <!--obrazki wyniki--> 
     <img id="image1" src="correct.png" style="width: 50px; height: 50px; display: none;" alt="✅">
     <img id="image2" src="incorrect.png" style="width: 50px; height: 50px; display: none;" alt="❌">
  
@@ -44,7 +45,8 @@
         var correctAnswer = ''; 
         var correctCount = 0;
         var wrongCount = 0;
-    
+
+         <!--funkcja co losuje interwały-->   
         function randomInterval() {
             var random = Math.floor(Math.random() * 12);
             var audio = document.getElementById('audioPlayer');
@@ -68,11 +70,12 @@
             audio.src = intervals[random][1];
             document.getElementById('image1').style.display = 'none';
             document.getElementById('image2').style.display = 'none';
-            
+
+<!--odtwarzacz audio- audio zamiast audiosource bo na safari się rozsypywało--> 
             audio.load();
             audio.play().catch(error => console.error("Błąd odtwarzania:", error));
         }
-        
+      
         function repeatInterval() {
             var audio = document.getElementById('audioPlayer');
             audio.play().catch(error => console.error("Błąd odtwarzania:", error));
