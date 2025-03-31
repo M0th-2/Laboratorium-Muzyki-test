@@ -54,10 +54,8 @@
     
     
     <!-- Odtwarzacz audio -->
-    <audio id="audioPlayer" controls style="display: none;">
-        <source id="audioSource" type="audio/mp3">
-        Twoja przeglądarka nie obsługuje odtwarzania dźwięku.
-    </audio>
+<audio id="audioPlayer" controls style="display: none;"></audio>
+
     
     <script>
         var correctAnswer = ''; 
@@ -90,8 +88,10 @@
 
             document.getElementById('image1').style.display = 'none';
             document.getElementById('image2').style.display = 'none';
-            
-            playAudio();
+
+    audio.load();
+    audio.play().catch(error => console.error("Błąd odtwarzania:", error));
+         
         }
         
         // Odt audio
