@@ -85,9 +85,17 @@ h1 {font-size: 24px;}
 .button1:hover {
     background: #85145f;
 
-
 }
-.button11 {
+@keyframes obrot {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.button4 {
     display: block;
     width: 100%;
     padding: 15px;
@@ -99,10 +107,11 @@ h1 {font-size: 24px;}
     border-radius: 5px;
     
 }
-.button11:hover {
+.button4:hover {
     background: #114d70;
 
 }
+
 @keyframes obrot {
     from {
         transform: rotate(0deg);
@@ -111,7 +120,6 @@ h1 {font-size: 24px;}
         transform: rotate(360deg);
     }
 }
-
 .obracany {
     width: 200px; 
     transition: animation 0,2ms ease; 
@@ -162,6 +170,7 @@ table, th, td {
     text-align: center;
     font-size: larger;
     border-radius: 5px;
+}
 .box2 {
     background: #02a2be;
     display: flex;
@@ -173,7 +182,6 @@ table, th, td {
     border-radius: 10px;
     justify-content: center
         }
-        
 @media (max-width: 768px) {
 .box2 {
     margin-top: 150px; 
