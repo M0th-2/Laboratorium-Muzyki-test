@@ -12,14 +12,15 @@
     <h1 style="text-align: center;">Słuchowe rozpoznawanie interwałów</h1>
     <p style="text-align: center;">do oktawy, w górę</p>
 
+     <!--box z wynikami-->
     <div class="box2">
         <span style="font-size: 20px; margin-right: 20px;">Dobrze: <span id="correctCount">0</span></span>
         <span style="font-size: 20px;">Źle: <span id="wrongCount">0</span></span>
     </div>
-   
+   <!--przyciski główne-->
     <button class="button3" onclick="randomInterval()">Losuj Interwał</button>
     <button class="button3" onclick="repeatInterval()">Zagraj jeszcze raz</button>
-  
+ <!--przyciski (znowu) - wyboru- przydzielenie dźwięku do buttonu (zamordujcie mnie)--> 
     <div id="intervalButtons" style="justify-content: last baseline;">
         <button class="button2" onclick="checkAnswer('sekundamala')">Sekunda Mała</button>
         <button class="button2" onclick="checkAnswer('sekundawielka')">Sekunda Wielka</button> 
@@ -46,7 +47,7 @@
         var correctCount = 0;
         var wrongCount = 0;
 
-         <!--funkcja co losuje interwały-->   
+ //funkcja co losuje interwały  
         function randomInterval() {
             var random = Math.floor(Math.random() * 12);
             var audio = document.getElementById('audioPlayer');
@@ -71,7 +72,7 @@
             document.getElementById('image1').style.display = 'none';
             document.getElementById('image2').style.display = 'none';
 
-<!--odtwarzacz audio- audio zamiast audiosource bo na safari się rozsypywało--> 
+//odtwarzacz audio- audio zamiast audiosource bo na safari się rozsypywało //
             audio.load();
             audio.play().catch(error => console.error("Błąd odtwarzania:", error));
         }
@@ -80,7 +81,7 @@
             var audio = document.getElementById('audioPlayer');
             audio.play().catch(error => console.error("Błąd odtwarzania:", error));
         }
-        
+//funkcja sprawdzjąca odp i aktualizująca licznik //
         function checkAnswer(answer) {
             if (answer === correctAnswer) {
                 document.getElementById('image1').style.display = 'block';
